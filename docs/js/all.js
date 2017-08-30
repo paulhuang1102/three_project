@@ -40,18 +40,18 @@ const init = () => {
 
     const mtlLoader = new THREE.MTLLoader();
 
-    mtlLoader.load('/assets/obj/rocket-launcher.mtl', (mat) => {
+    mtlLoader.load('./assets/obj/rocket-launcher.mtl', (mat) => {
         mat.preload();
         const objLoader = new THREE.OBJLoader();
 
         objLoader.setMaterials(mat);
-        objLoader.load('/assets/obj/rocket-launcher.obj', (mesh) => {
+        objLoader.load('./assets/obj/rocket-launcher.obj', (mesh) => {
             rocket = new THREE.Object3D();
 
             const pilot = new THREE.Mesh(
                 new THREE.CircleGeometry(5, 32),
                 new THREE.MeshBasicMaterial({
-                    map: new THREE.TextureLoader().load('/assets/img/oreo.png')
+                    map: new THREE.TextureLoader().load('./assets/img/oreo.png')
                 })
             );
             pilot.position.y = 15;
@@ -131,7 +131,7 @@ const createParticleSystem = () => {
     const particlesMat = new THREE.PointsMaterial({
         color: 0xffffff,
         size: 4,
-        map: new THREE.TextureLoader().load('/assets/img/star.png'),
+        map: new THREE.TextureLoader().load('./assets/img/star.png'),
         blending: THREE.AdditiveBlending,
         transparent: true
     });
